@@ -1,13 +1,12 @@
 require './person'
 
 class Teacher < Person
-  def initialize(age, name, specialization)
-    super(age, name)
+  def initialize(specialization)
+    super()
     @specialization = specialization
   end
 
   def can_use_services?
     true
   end
-  private :can_use_services?
 end
