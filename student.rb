@@ -1,5 +1,4 @@
 require_relative './person'
-require_relative './classroom'
 
 class Student < Person
   attr_reader :classroom
@@ -11,10 +10,6 @@ class Student < Person
 
   def play_hooky
     '¯(ツ)/¯'
-  end
-
-  def belongs_to
-    @classroom.label
   end
 
   def classroom=(classroom)
