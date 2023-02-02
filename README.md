@@ -207,6 +207,13 @@ Example:
 
 <!-- FUTURE FEATURES -->
 
+## 🔭 Future Features <a name="future-features"></a>
+
+- [ ] **Edit or delete existing students or teachers**
+- [ ] **Edit or delete existing books**
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- CONTRIBUTING -->
 
 ## 🤝 Contributing <a name="contributing"></a>
