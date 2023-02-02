@@ -15,14 +15,22 @@ class App
   end
 
   def list_all_books
-    @books.each do |book|
-      puts "Title: #{book.title}, Author: #{book.author}"
+    if @books.empty?
+      puts 'Book has not been added yet, please create a book'
+    else
+      @books.each do |book|
+        puts "Title: #{book.title}, Author: #{book.author}"
+      end
     end
   end
 
   def list_all_people
-    @people.each do |person|
-      puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+    if @people.empty?
+      puts 'Person has not been added yet, please create a person'
+    else
+      @people.each do |person|
+        puts "[#{person.class.name}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
+      end
     end
   end
 
@@ -55,19 +63,19 @@ class App
       return invalid_input
     end
 
-    people.push(Student.new(age, classroom, name, parent_permission: permission))
+    people.push(Student.new(classroom, age, name, parent_permission: permission))
     puts 'Person created successfully'
   end
 
   def create_teacher
+    puts 'Specialization:'
+    specialization = gets.chomp.to_s
     puts 'Age:'
     age = gets.chomp.to_i
     puts 'Name:'
     name = gets.chomp.to_s
-    puts 'Specialization:'
-    specialization = gets.chomp.to_s
 
-    people.push(Teacher.new(age, specialization, name))
+    people.push(Teacher.new(specialization, age, name))
     puts 'Person created successfully'
   end
 
@@ -104,10 +112,14 @@ class App
   end
 
   def display_rentals_by_person_id
-    print 'Person ID: '
-    person_id = gets.chomp.to_i
-    rentals.each do |rent|
-      puts "Date: #{rent.date}, Book: #{rent.book.title} by #{rent.book.author}." if rent.person.id == person_id
+    if @rentals.empty?
+      puts 'Rental has not been registered yet'
+    else
+      print 'Person ID: '
+      person_id = gets.chomp.to_i
+      rentals.each do |rent|
+        puts "Date: #{rent.date}, Book: #{rent.book.title} by #{rent.book.author}." if rent.person.id == person_id
+      end
     end
   end
 
