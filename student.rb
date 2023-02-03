@@ -8,7 +8,7 @@ class Student < Person
     @classroom = classroom
   end
 
-  def play_hooky
+  def play_hooky?
     '¯(ツ)/¯'
   end
 
@@ -17,3 +17,7 @@ class Student < Person
     classroom.students.push(self) unless classroom.students.include?(self)
   end
 end
+
+student = Student.new('Web', 25, 'Khusniddin')
+result = student.play_hooky
+puts result
