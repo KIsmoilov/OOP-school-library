@@ -34,9 +34,18 @@ class App
     end
   end
 
+  def get_user_input(message)
+    puts message
+    gets.chomp.to_i
+  end
+
+  def get_user_input_string(message)
+    puts message
+    gets.chomp.to_s
+  end
+
   def create_person
-    puts 'Do you want to create a student (1) or a teacher (2)? [Input a number]:'
-    person_type = gets.chomp.to_i
+    person_type = get_user_input('Do you want to create a student (1) or a teacher (2)? [Input a number]:')
 
     case person_type
     when 1
@@ -49,12 +58,10 @@ class App
   end
 
   def create_student
-    puts 'Age:'
-    age = gets.chomp.to_i
-    puts 'Name:'
-    name = gets.chomp.to_s
-    puts 'Has parent permission? [Y/N]:'
-    case gets.chomp.capitalize
+    age = get_user_input('Age:')
+    name = get_user_input_string('Name:')
+    parent_permission = get_user_input_string('Has parent permission? [Y/N]:')
+    case parent_permission.capitalize
     when 'Y'
       permission = true
     when 'N'
@@ -68,22 +75,17 @@ class App
   end
 
   def create_teacher
-    puts 'Specialization:'
-    specialization = gets.chomp.to_s
-    puts 'Age:'
-    age = gets.chomp.to_i
-    puts 'Name:'
-    name = gets.chomp.to_s
+    specialization = get_user_input_string('Specialization:')
+    age = get_user_input('Age:')
+    name = get_user_input_string('Name:')
 
     people.push(Teacher.new(specialization, age, name))
     puts 'Person created successfully'
   end
 
   def create_book
-    puts 'Title:'
-    title = gets.chomp.to_s
-    puts 'Author:'
-    author = gets.chomp.to_s
+    title = get_user_input_string('Title:')
+    author = get_user_input_string('Author:')
 
     books.push(Book.new(title, author))
     puts 'Book created successfully'
