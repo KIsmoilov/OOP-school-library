@@ -3,12 +3,13 @@ require_relative './teacher'
 require_relative './book'
 require_relative './rental'
 require_relative './classroom'
+require_relative './store_data/preserve_books'
 
 class App
   attr_accessor :books, :people, :rentals, :classroom
 
   def initialize
-    @books = []
+    @books = fetch_books
     @people = []
     @rentals = []
     @classroom = Classroom.new('Web Development')
