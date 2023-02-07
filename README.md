@@ -203,6 +203,12 @@ Example:
 - GitHub: [@KIsmoilov](https://github.com/KIsmoilov)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/khusniddin-ismoilov-185575157/)
 
+👤 **Andy**
+
+- GitHub: [@TechnoAndy](https://github.com/TechnoAndy)
+- Twitter: [ADiegaardt](https://twitter.com/ADiegaardt)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/andy-diegaardt/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
