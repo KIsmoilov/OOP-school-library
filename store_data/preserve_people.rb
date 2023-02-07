@@ -25,8 +25,8 @@ module PeoplePreserve
     student_file = './files_in_json/students.json'
     teacher_file = './files_in_json/teachers.json'
 
-    unless File.exist?(student_file) && File.exist?(teacher_file)
-        && File.read(student_file) != '' && File.read(teacher_file) != ''
+    unless File.exist?(student_file) && File.exist?(teacher_file) &&
+           File.read(student_file) != '' && File.read(teacher_file) != ''
       return []
     end
 
