@@ -15,6 +15,52 @@ class App
     @classroom = Classroom.new('Web Development')
   end
 
+  include BooksPreserve
+
+  def menu
+    puts "\n\nWelcome to School library app"
+    puts "\n1 - List all books"
+    puts "2 - List all people"
+    puts "3 - Create a person"
+    puts "4 - Create a book"
+    puts "5 - Create a rental"
+    puts "6 - List all rentals for a given person id"
+    puts "7 - Exit"
+  end
+
+  def check(options)
+    case options
+    when 1
+      list_all_books
+    when 2
+      list_all_people
+    when 3
+      create_person
+    when 4
+      create_book
+    when 5
+      create_rental
+    when 6
+      list_rentals
+    end
+  end
+
+  def execute
+    choice = 0
+    while choice != 7
+      menu
+      puts
+      puts
+      print '[Enter 1-7]: '
+      choice = gets.chomp.strip.to_i
+      check(choice)
+      puts
+      puts
+    end
+    puts 'Thank you for using School library app!'
+    store_books(@books)
+  end
+
   def list_all_books
     if @books.empty?
       puts 'Book has not been added yet, please create a book'

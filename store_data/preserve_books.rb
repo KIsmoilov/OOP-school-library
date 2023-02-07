@@ -1,3 +1,4 @@
+require 'json'
 module BooksPreserve
   def store_books(books)
     data = []
