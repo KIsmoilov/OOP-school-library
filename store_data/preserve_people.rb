@@ -10,10 +10,10 @@ module PeoplePreserve
     people.each do |person|
       case person
       when Student
-        student_data << { id: person.id, classroom: person.classroom.label, age: person.age, name: person.name,
+        student_data << { id: person.id, age: person.age, name: person.name,
                           parent_permission: person.parent_permission }
       when Teacher
-        teacher_data << { id: person.id, specialization: person.specialization, age: person.age, name: person.name }
+        teacher_data << { id: person.id, age: person.age, name: person.name }
       end
     end
     File.write(student_file, JSON.generate(student_data))
@@ -31,11 +31,11 @@ module PeoplePreserve
     end
 
     JSON.parse(File.read(student_file)).each do |student|
-      data << Student.new(student['id'], student['classroom'], student['age'], student['name'],
-                          student['parent_permission'])
+      data << Student.new(student['id'], student['age'], student['classroom'], student['name'],
+                          parent_permission: student['parent_permission'])
     end
     JSON.parse(File.read(teacher_file)).each do |teacher|
-      data << Teacher.new(teacher['id'], teacher['classroom'], teacher['age'], teacher['name'])
+      data << Teacher.new(teacher['id'], teacher['age'], teacher['specialization'], teacher['name'])
     end
     data
   end
