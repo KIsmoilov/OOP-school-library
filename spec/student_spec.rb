@@ -14,8 +14,8 @@ describe Student do
       expect(@student.name).to eql('Andy')
     end
 
-    it "it should return ¯\(ツ)/¯" do
-      expect(@student.play_hooky).to eq "¯\(ツ)/¯"
+    it "it should return '¯(ツ)/¯'" do
+      expect(@student.play_hooky).to eq '¯(ツ)/¯'
     end
   end
 end
