@@ -1,4 +1,5 @@
 require_relative '../book'
+require_relative '../person'
 
 describe Book do
   before :each do
@@ -11,6 +12,11 @@ describe Book do
       expect(title).to eq 'Redeeming Love'
       author = @book.author
       expect(author).to eq 'Francine Rivers'
+    end
+
+    it 'should add rental to the book and person' do
+      @book.add_rental(Person.new('Khusniddin', 28), '2023/01/01')
+      expect(@book.rentals.length).to eq 1
     end
   end
 end
